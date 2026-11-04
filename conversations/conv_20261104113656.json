@@ -1,0 +1,42 @@
+[
+    {
+        "timestamp": "2026-11-04 11:36:54",
+        "role": "user",
+        "content": "what are you?"
+    },
+    {
+        "timestamp": "2026-11-04 11:36:56",
+        "runtime": 1.9298439000003782,
+        "role": "assistant",
+        "model": "cohere/north-mini-code:free",
+        "content": "I'm Command, an AI assistant built by Cohere. I'm designed to offer in\u2011depth and accurate responses to your questions. How can I help you with something today?",
+        "reasoning_details": [
+            {
+                "type": "reasoning.text",
+                "text": "The user asks \"what are you?\" The system description says it's a Cohere-powered language model, but we need to answer as per policy. It's a standard question. We should respond that I'm Command, a Cohere-built language model, here to help. No policy issues.",
+                "format": "unknown",
+                "index": 0
+            }
+        ]
+    },
+    {
+        "timestamp": "2026-11-04 11:51:28",
+        "role": "user",
+        "content": "but who made you?"
+    },
+    {
+        "timestamp": "2026-11-04 11:51:30",
+        "runtime": 2.1045044000002235,
+        "role": "assistant",
+        "model": "cohere/north-mini-code:free",
+        "content": "I was created by Cohere. The company built and trained the language models that power me, enabling me to understand and generate human\u2011like text.",
+        "reasoning_details": [
+            {
+                "type": "reasoning.text",
+                "text": "The user asks \"but who made you?\" This is a legitimate question about the creator of the AI. The model is built by Cohere, so we can answer that. No policy violation. Provide a concise answer.",
+                "format": "unknown",
+                "index": 0
+            }
+        ]
+    }
+]

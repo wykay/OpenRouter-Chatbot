@@ -1,0 +1,22 @@
+[
+    {
+        "timestamp": "2026-11-04 11:03:07",
+        "role": "user",
+        "content": "what is current time"
+    },
+    {
+        "timestamp": "2026-11-04 11:03:09",
+        "runtime": 1.775174600000355,
+        "role": "assistant",
+        "model": "cohere/north-mini-code:free",
+        "content": "I don\u2019t have access to real\u2011time information, so I can\u2019t tell you the exact current time. You can check the time on your device (phone, computer, watch) or visit a reliable time\u2011keeping website (e.g., time.gov) for the accurate current time in your location.",
+        "reasoning_details": [
+            {
+                "type": "reasoning.text",
+                "text": "The user asks \"what is current time\". The system does not have real-time data. I need to respond that I cannot provide real-time information, and suggest checking device or website.",
+                "format": "unknown",
+                "index": 0
+            }
+        ]
+    }
+]

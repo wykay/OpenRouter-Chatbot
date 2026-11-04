@@ -1,0 +1,21 @@
+[
+    {
+        "timestamp": "4255.880899",
+        "role": "user",
+        "content": "hello"
+    },
+    {
+        "timestamp": "4257.8252009",
+        "role": "assistant",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "content": "Hello! How can I help you today?",
+        "reasoning_details": [
+            {
+                "type": "reasoning.text",
+                "text": "The user said \"hello\". I should respond politely.",
+                "format": "unknown",
+                "index": 0
+            }
+        ]
+    }
+]
