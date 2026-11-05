@@ -12,6 +12,14 @@ MODELS = [
     "cohere/north-mini-code:free",
     "dots-studio/dots-3-note-preview:free",
     "google/gemma-4-26b-a4b-it:free",
+
+    "nvidia/nemotron-3.5-content-safety:free",
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+    "xingchen-agi/xing4.0-29b-a4b:free",
+    "recursive/flint-v1.0:free",
+    "liquid/lfm-2.5-2.6b:free",
+    "google/gemma-4-31b-it:free",
+
 ]
 
 CONV_DIR = Path("conversations")

@@ -2,12 +2,20 @@
 Chatbot with access to free models routed by OpenRouter
 
 Models Available
-- nvidia/nemotron-3-ultra-550b-a55b:free
-- nvidia/nemotron-3.5-super-vl:free
-- nvidia/nemotron-3.5-lightning:free
-- cohere/north-mini-code:free
-- dots-studio/dots-3-note-preview:free
-- google/gemma-4-26b-a4b-it:free
+- [NVIDIA: Nemotron 3 Ultra](https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free)
+- [NVIDIA: Nemotron 3.5 Super VL](https://openrouter.ai/nvidia/nemotron-3.5-super-vl:free)
+- [NVIDIA: Nemotron 3.5 Lightning](https://openrouter.ai/nvidia/nemotron-3.5-lightning:free)
+- [Cohere: North Mini Code](https://openrouter.ai/cohere/north-mini-code:free)
+- [Dots Studio: Dots3-Note Preview](https://openrouter.ai/dots-studio/dots-3-note-preview:free)
+- [Google: Gemma 4 26B A4B](https://openrouter.ai/google/gemma-4-26b-a4b-it:free)
+
+Coming Soon
+- [NVIDIA: Nemotron 3.5 Content Safety](https://openrouter.ai/nvidia/nemotron-3.5-content-safety:free)
+- [NVIDIA: Nemotron 3 Nano Omni](https://openrouter.ai/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free)
+- [星辰(XingChen): Xing4.0 29B A4B](https://openrouter.ai/xingchen-agi/xing4.0-29b-a4b:free)
+- [Recursive: Flint](https://openrouter.ai/recursive/flint-v1.0:free)
+- [LiquidAI: LFM2.5-2.6B](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)
+- [Google: Gemma 4 31B](https://openrouter.ai/google/gemma-4-31b-it:free)
 
 ## Try Demo on Streamlit
 1. Click on the streamlit.app link on this project
