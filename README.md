@@ -1,5 +1,5 @@
 # Free AI Chatbot
-Chatbot with access to free models routed by OpenRouter
+Chatbot with access to free text models routed by OpenRouter
 
 Models Available
 - [NVIDIA: Nemotron 3 Ultra](https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free)
@@ -7,14 +7,12 @@ Models Available
 - [NVIDIA: Nemotron 3.5 Lightning](https://openrouter.ai/nvidia/nemotron-3.5-lightning:free)
 - [NVIDIA: Nemotron 3 Nano Omni](https://openrouter.ai/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free)
 - [Google: Gemma 4 26B A4B](https://openrouter.ai/google/gemma-4-26b-a4b-it:free)
+- [Google: Gemma 4 31B](https://openrouter.ai/google/gemma-4-31b-it:free)***
 - [Cohere: North Mini Code](https://openrouter.ai/cohere/north-mini-code:free)
 - [Recursive: Flint](https://openrouter.ai/recursive/flint-v1.0:free)
-- [Dots Studio: Dots3-Note Preview](https://openrouter.ai/dots-studio/dots-3-note-preview:free)
-
-Coming Soon
-- [星辰(XingChen): Xing4.0 29B A4B](https://openrouter.ai/xingchen-agi/xing4.0-29b-a4b:free)
 - [LiquidAI: LFM2.5-2.6B](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)
-- [Google: Gemma 4 31B](https://openrouter.ai/google/gemma-4-31b-it:free)
+- [两点工作室 (Dots Studio): Dots3-Note Preview](https://openrouter.ai/dots-studio/dots-3-note-preview:free)
+- [星辰 (XingChen): Xing4.0 29B A4B](https://openrouter.ai/xingchen-agi/xing4.0-29b-a4b:free)
 
 ## Try Demo on Streamlit
 1. Click on the streamlit.app link on this project

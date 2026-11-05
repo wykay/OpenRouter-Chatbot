@@ -1,8 +1,6 @@
 import json
 from pathlib import Path
-
 import streamlit as st
-
 import or_client
 
 MODELS = [
@@ -13,7 +11,6 @@ MODELS = [
     "cohere/north-mini-code:free",
     "recursive/flint-v1.0:free",
     "dots-studio/dots-3-note-preview:free",
-    
     "xingchen-agi/xing4.0-29b-a4b:free",
     "liquid/lfm-2.5-2.6b:free",
     "google/gemma-4-31b-it:free",
@@ -90,7 +87,21 @@ with st.sidebar:
             use_container_width=True,
         )
 
+    st.divider()
+    MODES = {
+        "End": "end",
+        "Retry same model": "retry",
+        "Switch model": "switch",
+    }
+    after_timeout = st.radio("After timeout / 429 / 504", list(MODES), index=0)
+    max_wait = st.slider(
+        "Max total wait (s)", 10, 180, 60,
+        disabled=MODES[after_timeout] != "retry",
+    )
+
 # ---------- Chat history ----------
+if st.session_state.get("notice"):
+    st.toast(st.session_state.pop("notice"))
 if st.session_state.context is None:
     st.caption("New chat")
 else:
@@ -103,10 +114,24 @@ if prompt:
     with st.chat_message("user"):
         st.markdown(prompt)
     with st.chat_message("assistant"):
+        status = st.empty()
+        order = [model] + [m for m in MODELS if m != model]
+
+        def on_wait(delay, e):
+            status.warning(f"{model} busy (HTTP {e.status_code}). Retrying in {delay}s...")
+
+        def on_switch(old, new, e):
+            status.warning(f"{old} failed (HTTP {e.status_code}). Trying {new}...")
+
         try:
             with st.spinner("Thinking..."):
-                filename = or_client.complete_request(model, prompt, st.session_state.context)
+                filename, used = or_client.complete_with_policy(
+                    order, prompt, st.session_state.context,
+                    mode=MODES[after_timeout], max_wait=max_wait,
+                    on_wait=on_wait, on_switch=on_switch,
+                )
         except or_client.OpenRouterError as e:
+            status.empty()
             st.error(f"**{model}** failed: {e}")
             if e.details:
                 with st.expander("Raw error details"):
@@ -114,10 +139,13 @@ if prompt:
                         st.json(e.details)
                     else:
                         st.code(e.details, language=None)
-            st.code(prompt, language=None)  # copy your message to retry
+            st.code(prompt, language=None)
         except Exception as e:
-            st.exception(e)  # unexpected bugs: shows the full traceback
+            status.empty()
+            st.exception(e)
             st.code(prompt, language=None)
         else:
+            if used != model:
+                st.session_state.notice = f"{model} was busy, answered by {used}"
             st.session_state.context = normalize(filename)
             st.rerun()
