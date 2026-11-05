@@ -1,32 +1,73 @@
 # Free AI Chatbot
 Chatbot with access to free models routed by OpenRouter
 
-## OpenRouter API Key
-1. Go to https://openrouter.ai/
+Models Available
+- nvidia/nemotron-3-ultra-550b-a55b:free
+- nvidia/nemotron-3.5-super-vl:free
+- nvidia/nemotron-3.5-lightning:free
+- cohere/north-mini-code:free
+- dots-studio/dots-3-note-preview:free
+- google/gemma-4-26b-a4b-it:free
+
+## Try Demo on Streamlit
+1. Click on the streamlit.app link on this project
+2. Select a model and start chatting
+    > Keep in mind that the chat log are not permanent as Streamlit will remove the files once session is inactive
+
+## Run Project Locally
+### Set OpenRouter API Key
+1. Go to [OpenRouter](https://openrouter.ai/)
 2. Navigate to Dashboard > Workspace > API Keys
 3. Click on "New key", enter a name and define expiration date. 
-<br>*As a safety precaution, you may set the credit limit to as little as possible (0.0001 to 1e-99) and disable Reset Limit.
+    > As a safety precaution, you may set the credit limit to as little as possible (0.0001 to 1e-99) and disable Reset Limit.
 4. Go to this project and create .env file by copying from .env.example file
 5. Copy the API key and paste it on the file
 
-## Google AI API Key
+### Set Google AI API Key
 API Key from Google AI Studio is required for OpenRouter to access its model (e.g. Gemma)
-1. Go to https://aistudio.google.com/
+1. Go to [Google AI Studio](https://aistudio.google.com/)
 2. Navigate to Dashboard > API Keys
 3. Click on "Create API Key", enter a name and select a project
-4. Go to https://openrouter.ai/
+4. Go to [OpenRouter](https://openrouter.ai/)
 5. Navigate to Dashboard > Workspace > BYOK
 6. Find "Google AI Studio" in the list of providers
 7. Click on "Add key", enter a name, paste the key, and other settings
 
-## Run Project Locally
-1. <code>python -m venv venv && source venv/bin/activate</code>
-2. <code>pip install -r requirements.txt</code>
-3. <code>python main.py</code>
+### Run Project Folder
+1. Create virtual enviroment
+    ```terminal
+    python -m venv venv && source venv/bin/activate</code>
+    ```
+2. Install dependencies
+    ```terminal
+    <code>pip install -r requirements.txt</code>
+    ```
+3. Run
+    ```terminal
+    <code>python main.py</code>
+    ```
 
-## Run Project in Docker
-1. <code>docker build -t my-app .</code>
-2. <code>docker run --rm -p 8080:8080 --env-file .env my-app</code>
+### Run Project in Docker
+Requires [Docker](https://docs.docker.com/get-docker/).
+
+1. Build the image:
+   ```bash
+   docker build -t my-app .
+   ```
+2. Run it:
+   ```bash
+   docker run --rm -p 8080:8080 --env-file .env my-app
+   ```
 3. Open http://localhost:8080
-## Run Project from a Docker Registry
-1. <code>docker run --rm -p 8080:8080 --env-file .env yourname/my-app:1.0</code>
+    > The API key is passed at runtime through `--env-file` and is not stored in the image (`.env` is excluded via `.dockerignore`).
+
+To keep chat logs after the container stops, mount a volume:
+```bash
+docker run --rm -p 8080:8080 --env-file .env -v "$(pwd)/logs:/app/logs" my-app
+```
+
+### Run Project from a Docker Registry
+Pull and run the published image (you still need your own `.env`):
+```bash
+docker run --rm -p 8080:8080 --env-file .env yourname/my-app:1.0
+```
