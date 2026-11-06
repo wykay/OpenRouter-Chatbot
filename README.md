@@ -1,6 +1,6 @@
 # Free AI Chatbot
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://free-ai-chatbot.streamlit.app)
-[![Docker Image](https://img.shields.io/badge/docker-ready-blue.svg)](#run-with-docker)
+[![Docker Image](https://img.shields.io/badge/docker-ready-blue.svg)](#option-2-run-with-docker)
 
 Chatbot with access to free text models routed by OpenRouter
 
@@ -22,7 +22,7 @@ Chatbot with access to free text models routed by OpenRouter
 
 ## Try Demo on Streamlit
 1. Go to https://free-ai-chatbot.streamlit.app/
-2. Select a model and start chatting
+2. Select a model and start chatting, you can also change model mid-conversation
 
 > [!WARNING]
 > Chat logs are not permanent. Streamlit Community Cloud wipes the files once the session is inactive.
@@ -33,25 +33,28 @@ Chatbot with access to free text models routed by OpenRouter
 ## Installation Guide
 
 ### Prerequisites
-- Have Python 3.13 or Docker installed
-- Acquire an API key from [OpenRouter](https://openrouter.ai/)
-- Clone the repository
+- Python 3.13 (for running locally)
+- Docker (for running with Docker)
+- An API key from [OpenRouter](https://openrouter.ai/) (free acccount)
+
+### Setup
+1. Clone the repository
     ```bash
     git clone https://github.com/wykay/OpenRouter-Chatbot.git
     cd OpenRouter-Chatbot
     ```
-- Configure enviroment variable
+2. Configure environment variable
     ```bash
     cp .env.example .env
     ```
-    Open .env and insert your credential
+3. Open .env and insert your credential
 
 > [!TIP]
 > As a safety precaution, you may set the key's credit limit to 1e-99 in OpenRouter dashboard to prevent unexpected billing
 
 ### Option 1: Run Locally with Python
-1. Set up a virtual enviroment
-    Windows (Powershell)
+1. Set up a virtual environment
+    Windows (PowerShell)
     ```powershell
     python -m venv venv
     .\venv\Scripts\Activate.ps1
@@ -75,15 +78,14 @@ Chatbot with access to free text models routed by OpenRouter
     ```bash
     docker build -t free-ai-chatbot .
     ```
-2. Run with environment file (port 8080 or default 8501)
-
+2. Run with environment file
     ```bash
     docker run --rm -p 8080:8080 --env-file .env free-ai-chatbot
     ```
 3. To persist chat session logs locally between runs, attach a host volume:
-
     ```bash
-    docker run --rm -p 8080:8080 --env-file .env -v "$(pwd)/logs:/app/logs" free-ai-chatbot
+    mkdir -p conversations
+    docker run --rm -p 8080:8080 --env-file .env -v "$(pwd)/conversations:/app/conversations" free-ai-chatbot
     ```
 
 ### Setting Up Google AI Studio (BYOK)
