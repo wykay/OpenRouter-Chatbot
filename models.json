@@ -1,0 +1,42 @@
+[
+    {
+        "name": "NVIDIA: Nemotron 3 Ultra",
+        "code": "nvidia/nemotron-3-ultra-550b-a55b:free"
+    },
+        {
+        "name": "NVIDIA: Nemotron 3.5 Super VL",
+        "code": "nvidia/nemotron-3.5-super-vl:free"
+    },
+        {
+        "name": "NVIDIA: Nemotron 3.5 Lightning",
+        "code": "nvidia/nemotron-3.5-lightning:free"
+    },
+        {
+        "name": "Google: Gemma 4 26B A4B IT",
+        "code": "google/gemma-4-26b-a4b-it"
+    },
+        {
+        "name": "Google: Gemma 4 31B IT",
+        "code": "google/gemma-4-31b-it"
+    },
+        {
+        "name": "Cohere: North Mini Code",
+        "code": "cohere/north-mini-code:free"
+    },
+        {
+        "name": "Recursive: Flint",
+        "code": "recursive/flint-v1.0:free"
+    },
+    {
+        "name": "LiquidAI: LFM 2.5-2.6B",
+        "code": "liquid/lfm-2.5-2.6b:free"
+    },
+    {
+        "name": "Dots Studio: Dots3 Note Preview",
+        "code": "dots-studio/dots-3-note-preview:free"
+    },
+    {
+        "name": "XingChen: Xing4.0 29B A4B",
+        "code": "xingchen-agi/xing4.0-29b-a4b:free"
+    }
+]

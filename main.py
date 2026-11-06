@@ -3,20 +3,12 @@ from pathlib import Path
 import streamlit as st
 import or_client
 
-MODELS = [
-    "nvidia/nemotron-3-ultra-550b-a55b:free",
-    "nvidia/nemotron-3.5-super-vl:free",
-    "nvidia/nemotron-3.5-lightning:free",
-    "google/gemma-4-26b-a4b-it:free",
-    "cohere/north-mini-code:free",
-    "recursive/flint-v1.0:free",
-    "dots-studio/dots-3-note-preview:free",
-    "xingchen-agi/xing4.0-29b-a4b:free",
-    "liquid/lfm-2.5-2.6b:free",
-    "google/gemma-4-31b-it:free",
+MODEL_FILE = json.loads((Path(__file__).parent / "models.json").read_text())
+CODE_TO_NAME = {m["code"]: m["name"] for m in MODEL_FILE}
+MODELS = list(CODE_TO_NAME)  # all codes, in file order
 
-]
-#  "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free", is down
+def label(code):
+    return CODE_TO_NAME.get(code, code)
 
 CONV_DIR = Path("conversations")
 CONV_DIR.mkdir(exist_ok=True)
@@ -62,7 +54,7 @@ def render_message(m):
                     if d.get("text")
                 )
                 runtime = m.get("runtime")
-                st.write(f"**Model:** {m.get('model', 'unknown')}")
+                st.write(f"**Model:** {label(m.get('model', 'unknown'))}")
                 st.write(
                     f"**Runtime:** {runtime:.6f} s"
                     if runtime is not None
@@ -75,18 +67,8 @@ def render_message(m):
 # ---------- Sidebar ----------
 with st.sidebar:
     st.button("New chat", icon=":material/add:", on_click=new_chat, use_container_width=True)
-    model = st.selectbox("Model", MODELS)
-    st.divider()
-    for f in sorted(CONV_DIR.glob("*.json"), reverse=True):
-        st.button(
-            f.name,
-            key=f"conv_{f.name}",
-            on_click=select,
-            args=(f.name,),
-            type="primary" if f.name == st.session_state.context else "secondary",
-            use_container_width=True,
-        )
-
+    model = st.selectbox("Model", MODELS, index=0, format_func=label)
+    
     st.divider()
     MODES = {
         "End": "end",
@@ -98,10 +80,22 @@ with st.sidebar:
         "Max total wait (s)", 10, 180, 60,
         disabled=MODES[after_timeout] != "retry",
     )
+    
+    st.divider()
+    for f in sorted(CONV_DIR.glob("*.json"), reverse=True):
+        st.button(
+            f.name,
+            key=f"conv_{f.name}",
+            on_click=select,
+            args=(f.name,),
+            type="primary" if f.name == st.session_state.context else "secondary",
+            use_container_width=True,
+        )
 
 # ---------- Chat history ----------
 if st.session_state.get("notice"):
     st.toast(st.session_state.pop("notice"))
+
 if st.session_state.context is None:
     st.caption("New chat")
 else:
@@ -118,10 +112,10 @@ if prompt:
         order = [model] + [m for m in MODELS if m != model]
 
         def on_wait(delay, e):
-            status.warning(f"{model} busy (HTTP {e.status_code}). Retrying in {delay}s...")
+            status.warning(f"{label(model)} busy (HTTP {e.status_code}). Retrying in {delay}s...")
 
         def on_switch(old, new, e):
-            status.warning(f"{old} failed (HTTP {e.status_code}). Trying {new}...")
+            status.warning(f"{label(old)} failed (HTTP {e.status_code}). Trying {label(new)}...")
 
         try:
             with st.spinner("Thinking..."):
@@ -132,7 +126,7 @@ if prompt:
                 )
         except or_client.OpenRouterError as e:
             status.empty()
-            st.error(f"**{model}** failed: {e}")
+            st.error(f"**{label(model)}** failed: {e}")
             if e.details:
                 with st.expander("Raw error details"):
                     if isinstance(e.details, (dict, list)):
@@ -146,6 +140,6 @@ if prompt:
             st.code(prompt, language=None)
         else:
             if used != model:
-                st.session_state.notice = f"{model} was busy, answered by {used}"
+                st.session_state.notice = f"{label(model)} was busy, answered by {label(used)}"
             st.session_state.context = normalize(filename)
             st.rerun()
