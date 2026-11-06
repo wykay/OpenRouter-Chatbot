@@ -1,7 +1,7 @@
 # Free AI Chatbot
 Chatbot with access to free text models routed by OpenRouter
 
-Models Available
+## Models Available
 - [NVIDIA: Nemotron 3 Ultra](https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free)
 - [NVIDIA: Nemotron 3.5 Super VL](https://openrouter.ai/nvidia/nemotron-3.5-super-vl:free)
 - [NVIDIA: Nemotron 3.5 Lightning](https://openrouter.ai/nvidia/nemotron-3.5-lightning:free)
@@ -45,11 +45,11 @@ API Key from Google AI Studio is recommended for OpenRouter to access its model 
     ```
 2. Install dependencies
     ```powershell
-    <code>pip install -r requirements.txt
+    pip install -r requirements.txt
     ```
 3. Navigate to project root and run
     ```powershell
-    <code>python -m streamlit run main.py
+    python -m streamlit run main.py
     ```
 
 ### Run Project in Docker
