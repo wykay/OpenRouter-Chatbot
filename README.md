@@ -7,7 +7,7 @@ Models Available
 - [NVIDIA: Nemotron 3.5 Lightning](https://openrouter.ai/nvidia/nemotron-3.5-lightning:free)
 - [NVIDIA: Nemotron 3 Nano Omni](https://openrouter.ai/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free)
 - [Google: Gemma 4 26B A4B](https://openrouter.ai/google/gemma-4-26b-a4b-it:free)
-- [Google: Gemma 4 31B](https://openrouter.ai/google/gemma-4-31b-it:free)***
+- [Google: Gemma 4 31B](https://openrouter.ai/google/gemma-4-31b-it:free)
 - [Cohere: North Mini Code](https://openrouter.ai/cohere/north-mini-code:free)
 - [Recursive: Flint](https://openrouter.ai/recursive/flint-v1.0:free)
 - [LiquidAI: LFM2.5-2.6B](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)
@@ -19,7 +19,7 @@ Models Available
 2. Select a model and start chatting
     > Keep in mind that the chat log are not permanent as Streamlit will remove the files once session is inactive
 
-## Run Project Locally
+## Dowload Locally and Setup
 ### Set OpenRouter API Key
 1. Go to [OpenRouter](https://openrouter.ai/)
 2. Navigate to Dashboard > Workspace > API Keys
@@ -29,7 +29,7 @@ Models Available
 5. Copy the API key and paste it on the file
 
 ### Set Google AI API Key
-API Key from Google AI Studio is required for OpenRouter to access its model (e.g. Gemma)
+API Key from Google AI Studio is recommended for OpenRouter to access its model (e.g. Gemma)
 1. Go to [Google AI Studio](https://aistudio.google.com/)
 2. Navigate to Dashboard > API Keys
 3. Click on "Create API Key", enter a name and select a project
@@ -39,17 +39,17 @@ API Key from Google AI Studio is required for OpenRouter to access its model (e.
 7. Click on "Add key", enter a name, paste the key, and other settings
 
 ### Run Project Folder
-1. Create virtual enviroment
-    ```terminal
-    python -m venv venv && source venv/bin/activate</code>
+1. Create and activate virtual enviroment
+    ```powershell
+    python -m venv venv && source venv/bin/activate
     ```
 2. Install dependencies
-    ```terminal
-    <code>pip install -r requirements.txt</code>
+    ```powershell
+    <code>pip install -r requirements.txt
     ```
-3. Run
-    ```terminal
-    <code>python main.py</code>
+3. Navigate to project root and run
+    ```powershell
+    <code>python -m streamlit run main.py
     ```
 
 ### Run Project in Docker
@@ -70,7 +70,6 @@ To keep chat logs after the container stops, mount a volume:
 ```bash
 docker run --rm -p 8080:8080 --env-file .env -v "$(pwd)/logs:/app/logs" my-app
 ```
-
 ### Run Project from a Docker Registry
 Pull and run the published image (you still need your own `.env`):
 ```bash

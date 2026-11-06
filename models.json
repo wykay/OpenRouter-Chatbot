@@ -3,27 +3,27 @@
         "name": "NVIDIA: Nemotron 3 Ultra",
         "code": "nvidia/nemotron-3-ultra-550b-a55b:free"
     },
-        {
+    {
         "name": "NVIDIA: Nemotron 3.5 Super VL",
         "code": "nvidia/nemotron-3.5-super-vl:free"
     },
-        {
+    {
         "name": "NVIDIA: Nemotron 3.5 Lightning",
         "code": "nvidia/nemotron-3.5-lightning:free"
     },
-        {
+    {
         "name": "Google: Gemma 4 26B A4B IT",
         "code": "google/gemma-4-26b-a4b-it"
     },
-        {
+    {
         "name": "Google: Gemma 4 31B IT",
         "code": "google/gemma-4-31b-it"
     },
-        {
+    {
         "name": "Cohere: North Mini Code",
         "code": "cohere/north-mini-code:free"
     },
-        {
+    {
         "name": "Recursive: Flint",
         "code": "recursive/flint-v1.0:free"
     },
