@@ -1,12 +1,10 @@
 # Free AI Chatbot
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://free-ai-chatbot.streamlit.app)
 [![Docker Image](https://img.shields.io/badge/docker-ready-blue.svg)](#run-with-docker)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Chatbot with access to free text models routed by OpenRouter
 
-## All Models Available
+## All Available Models
 - [NVIDIA: Nemotron 3 Ultra](https://openrouter.ai/nvidia/nemotron-3-ultra-550b-a55b:free)
 - [NVIDIA: Nemotron 3.5 Super VL](https://openrouter.ai/nvidia/nemotron-3.5-super-vl:free)
 - [NVIDIA: Nemotron 3.5 Lightning](https://openrouter.ai/nvidia/nemotron-3.5-lightning:free)
@@ -18,25 +16,26 @@ Chatbot with access to free text models routed by OpenRouter
 - [LiquidAI: LFM2.5-2.6B](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)
 - [两点工作室 (Dots Studio): Dots3-Note Preview](https://openrouter.ai/dots-studio/dots-3-note-preview:free) (Leaving on 31 December 2026)
 - [星辰 (XingChen): Xing4.0 29B A4B](https://openrouter.ai/xingchen-agi/xing4.0-29b-a4b:free)
+    > [!WARNING]
     > Models may be temporarily unavailable if their upstream provider experiences downtime or have rate limited
 
 ## Try Demo on Streamlit
 1. Go to https://free-ai-chatbot.streamlit.app/
 2. Select a model and start chatting
-    > Chat logs are not permanent as Streamlit Community Cloud will wipe the files once session is inactive
+    > [!WARNING]
+    > Chat logs are not permanent. Streamlit Community Cloud wipes the files once the session is inactive.
 
-    > Download your chat logs before leaving to save your conversation locally, which you can re-upload in future sessions
+    > [!TIP]
+    > Download your chat logs before leaving. You can re-upload them in future sessions.
 
 ## Installation Guide
 
 ### Prerequisites
-- Have Python 3.10+ or Docker installed
+- Have Python 3.13 or Docker installed
 - Acquire an [OpenRouter API Key](https://openrouter.ai/) (free account)
 - Clone the repository
     ```bash
     git clone https://github.com/wykay/OpenRouter-Chatbot.git
-    ```
-    ```bash
     cd OpenRouter-Chatbot
     ```
 - Configure enviroment variable
@@ -44,6 +43,7 @@ Chatbot with access to free text models routed by OpenRouter
     cp .env.example .env
     ```
     Open .env and insert your credential
+    > [!TIP]
     > As a safety precaution, you may set the key's credit limit to 1e-99 in OpenRouter dashboard to prevent unexpected billing
 
 ### Option 1: Run Locally with Python
