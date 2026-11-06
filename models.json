@@ -12,11 +12,15 @@
         "code": "nvidia/nemotron-3.5-lightning:free"
     },
     {
-        "name": "Google: Gemma 4 26B A4B IT",
+        "name": "NVIDIA: Nemotron 3 Nano Omni",
+        "code": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+    },
+    {
+        "name": "Google: Gemma 4 26B A4B",
         "code": "google/gemma-4-26b-a4b-it:free"
     },
     {
-        "name": "Google: Gemma 4 31B IT",
+        "name": "Google: Gemma 4 31B",
         "code": "google/gemma-4-31b-it:free"
     },
     {
@@ -32,7 +36,7 @@
         "code": "liquid/lfm-2.5-2.6b:free"
     },
     {
-        "name": "Dots Studio: Dots3 Note Preview",
+        "name": "Dots Studio: Dots3-Note Preview",
         "code": "dots-studio/dots-3-note-preview:free"
     },
     {
