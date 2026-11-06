@@ -13,11 +13,11 @@
     },
     {
         "name": "Google: Gemma 4 26B A4B IT",
-        "code": "google/gemma-4-26b-a4b-it"
+        "code": "google/gemma-4-26b-a4b-it:free"
     },
     {
         "name": "Google: Gemma 4 31B IT",
-        "code": "google/gemma-4-31b-it"
+        "code": "google/gemma-4-31b-it:free"
     },
     {
         "name": "Cohere: North Mini Code",
