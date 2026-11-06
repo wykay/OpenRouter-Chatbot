@@ -16,23 +16,25 @@ Chatbot with access to free text models routed by OpenRouter
 - [LiquidAI: LFM2.5-2.6B](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)
 - [两点工作室 (Dots Studio): Dots3-Note Preview](https://openrouter.ai/dots-studio/dots-3-note-preview:free) (Leaving on 31 December 2026)
 - [星辰 (XingChen): Xing4.0 29B A4B](https://openrouter.ai/xingchen-agi/xing4.0-29b-a4b:free)
-    > [!WARNING]
-    > Models may be temporarily unavailable if their upstream provider experiences downtime or have rate limited
+
+> [!WARNING]
+> Models may be temporarily unavailable if their upstream provider experiences downtime or have rate limited
 
 ## Try Demo on Streamlit
 1. Go to https://free-ai-chatbot.streamlit.app/
 2. Select a model and start chatting
-    > [!WARNING]
-    > Chat logs are not permanent. Streamlit Community Cloud wipes the files once the session is inactive.
 
-    > [!TIP]
-    > Download your chat logs before leaving. You can re-upload them in future sessions.
+> [!WARNING]
+> Chat logs are not permanent. Streamlit Community Cloud wipes the files once the session is inactive.
+
+> [!TIP]
+> Download your chat logs before leaving. You can re-upload them in future sessions.
 
 ## Installation Guide
 
 ### Prerequisites
 - Have Python 3.13 or Docker installed
-- Acquire an [OpenRouter API Key](https://openrouter.ai/) (free account)
+- Acquire an API key from [OpenRouter](https://openrouter.ai/)
 - Clone the repository
     ```bash
     git clone https://github.com/wykay/OpenRouter-Chatbot.git
@@ -43,8 +45,9 @@ Chatbot with access to free text models routed by OpenRouter
     cp .env.example .env
     ```
     Open .env and insert your credential
-    > [!TIP]
-    > As a safety precaution, you may set the key's credit limit to 1e-99 in OpenRouter dashboard to prevent unexpected billing
+
+> [!TIP]
+> As a safety precaution, you may set the key's credit limit to 1e-99 in OpenRouter dashboard to prevent unexpected billing
 
 ### Option 1: Run Locally with Python
 1. Set up a virtual enviroment
@@ -66,7 +69,6 @@ Chatbot with access to free text models routed by OpenRouter
     ```powershell
     python -m streamlit run main.py
     ```
-    Click on the Local URL, which should be http://localhost:8501
 
 ### Option 2: Run with Docker
 1. Build the image
